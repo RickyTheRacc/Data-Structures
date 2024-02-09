@@ -89,7 +89,7 @@ public class Scene {
 			System.out.println("Mark being tested: " + marks[i]);
 			System.out.println("Mark's color: " + marks[i].color);
 
-			if (marks[i].color.equals(color)) deleteMark(i);
+			if (marks[i].isColor(color)) deleteMark(i);
 			i++;
 		}
 	}
