@@ -3,9 +3,6 @@ package com.gradescope.HW2;
 import bridges.base.Color;
 import bridges.base.ColorGrid;
 
-import java.util.Arrays;
-import java.util.stream.StreamSupport;
-
 public class Scene {
 	private final int maxMarks;
 	private final Color backgroundColor;
@@ -31,12 +28,8 @@ public class Scene {
 	 */
 	public void addMark(Mark mark) {
 		if (isFull()) throw new IllegalStateException("No room to add more Marks");
-		System.out.println("Before: " + Arrays.toString(marks));
 		marks[size] = mark;
 		size++;
-
-		System.out.println("After: " + Arrays.toString(marks));
-		System.out.println();
 	}
 
 	/**
@@ -84,11 +77,6 @@ public class Scene {
 	public void deleteMarksByColor(Color color) {
 		int i = 0;
 		while (i < size) {
-			System.out.println("Testing index " + i);
-			System.out.println("Checking for color: " + color);
-			System.out.println("Mark being tested: " + marks[i]);
-			System.out.println("Mark's color: " + marks[i].color);
-
 			if (marks[i].isColor(color)) deleteMark(i);
 			i++;
 		}

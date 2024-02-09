@@ -212,21 +212,10 @@ public class SceneTest {
     @Test
     public void deleteByColorTest() {
         Scene s = new Scene(5, G);
-
         s.addMark(new VerticalLine(0, 2, 1, B));
         s.addMark(new HorizontalLine(0, 2, 0, Y));
         s.addMark(new VerticalLine(0, 1, 2, B));
-
         ColorGrid cg = new ColorGrid(3,3);
-
-        System.out.println("Scene has length of " + s.length());
-        System.out.println();
-
-        for (Mark mark: s.getMarks()) {
-            System.out.println(mark);
-        }
-        System.out.println();
-
         s.deleteMarksByColor(B);
         s.draw(cg);
         TestUtilities.checkCG(new Color[][]{
