@@ -5,6 +5,7 @@ import bridges.base.ColorGrid;
 
 // This code derived from https://www.geeksforgeeks.org/bresenhams-line-generation-algorithm/
 
+@SuppressWarnings("unused")
 public class DiagonalLine extends Mark {
     // Fields don't change so they can be final
     private final int xStart;

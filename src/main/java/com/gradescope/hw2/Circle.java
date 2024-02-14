@@ -3,12 +3,17 @@ package com.gradescope.hw2;
 import bridges.base.Color;
 import bridges.base.ColorGrid;
 
+// This code derived from https://www.geeksforgeeks.org/mid-point-circle-drawing-algorithm/
+
+@SuppressWarnings("unused")
 public class Circle extends Mark {
+    // None of these fields will ever change, so they are marked as final
     private final int radius;
     private final int xcenter;
     private final int ycenter;
 
     public Circle(int radius, int xcenter, int ycenter, Color color) {
+        // Set the fields in the constructor
         this.radius = radius;
         this.xcenter = xcenter;
         this.ycenter = ycenter;
@@ -20,6 +25,7 @@ public class Circle extends Mark {
         int x = radius;
         int y = 0;
 
+        // Initial decision parameter of the circle
         int p = 1 - radius;
 
         // Print the initial point on the axes after translation

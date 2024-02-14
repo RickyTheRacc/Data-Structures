@@ -3,6 +3,7 @@ package com.gradescope.hw2;
 import bridges.base.Color;
 import bridges.base.ColorGrid;
 
+@SuppressWarnings("unused")
 public class Scene {
 	private final int maxMarks;
 	private final Color backgroundColor;
@@ -28,6 +29,7 @@ public class Scene {
 	 */
 	public void addMark(Mark mark) {
 		if (isFull()) throw new IllegalStateException("No room to add more Marks");
+		// Add the mark to the array and increment the size
 		marks[size] = mark;
 		size++;
 	}
@@ -39,19 +41,13 @@ public class Scene {
 	public void deleteMark(int index) {
 		if (index < 0 || index >= size) throw new IllegalArgumentException("Index out of bounds");
 
+		// Shift all the elements after the index to the left
 		for (int i = index; i < size - 1; i++) {
 			marks[i] = marks[i + 1];
 		}
 
+		// Decrement the size
 		size--;
-	}
-
-	/**
-	 * Returns the Marks in this Scene
-	 * @return The Marks in this Scene
-	 */
-	public Mark[] getMarks() {
-		return marks;
 	}
 
 	/**
@@ -63,19 +59,12 @@ public class Scene {
 	}
 
 	/**
-	 * Returns the number of Marks in this Scene
-	 * @return The number of Marks in this Scene
-	 */
-	public int length() {
-		return size;
-	}
-
-	/**
 	 * Deletes all Marks of a given color from this Scene
 	 * @param color: the Color to delete
 	 */
 	public void deleteMarksByColor(Color color) {
 		int i = 0;
+		// Loop through all the marks and delete the ones that match the given color
 		while (i < size) {
 			if (marks[i].isColor(color)) deleteMark(i);
 			i++;
@@ -87,12 +76,14 @@ public class Scene {
 	 * @param colorGrid The ColorGrid to draw the scene with
 	 */
 	public void draw(ColorGrid colorGrid) {
+		// Start by setting the entire grid to the background color
 		for (int i = 0; i < colorGrid.getWidth(); i++) {
 			for (int j = 0; j < colorGrid.getHeight(); j++) {
 				colorGrid.set(j, i, backgroundColor);
 			}
 		}
 
+		// Draw all the marks
 		for (int i = 0; i < size; i++) {
 			marks[i].draw(colorGrid);
 		}

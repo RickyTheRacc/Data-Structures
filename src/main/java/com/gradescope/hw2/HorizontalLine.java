@@ -3,6 +3,7 @@ package com.gradescope.hw2;
 import bridges.base.Color;
 import bridges.base.ColorGrid;
 
+@SuppressWarnings("unused")
 public class HorizontalLine extends Mark {
     // None of these fields will ever change so they are marked as final
     private final int start;
