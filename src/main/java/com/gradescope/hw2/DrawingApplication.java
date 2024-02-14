@@ -7,9 +7,7 @@ import bridges.base.ColorGrid;
 
 
 public class DrawingApplication {
-
 	public static void main(String[] args) throws Exception {
-
 		// SETUP: edit the arguments passed to the Bridges constructor
 		Bridges bridges = new Bridges(1, "KalonaSurvivor", "168697472006");
 

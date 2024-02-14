@@ -4,8 +4,7 @@ import bridges.base.Color;
 import bridges.base.ColorGrid;
 import org.junit.Test;
 
-public class HorizonalLineTest {
-
+public class HorizontalLineTest {
     private static final Color B = new Color("black");
     private static final Color W = new Color("white");
     private static final Color U = new Color("blue");
