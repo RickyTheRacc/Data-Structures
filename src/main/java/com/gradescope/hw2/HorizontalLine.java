@@ -1,4 +1,4 @@
-package com.gradescope.HW2;
+package com.gradescope.hw2;
 
 import bridges.base.Color;
 import bridges.base.ColorGrid;

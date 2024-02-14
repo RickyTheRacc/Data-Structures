@@ -1,10 +1,8 @@
-package com.gradescope.HW2;
+package com.gradescope.hw2;
 
 import bridges.base.Color;
 import org.junit.Assert;
 import org.junit.Test;
-
-import java.awt.*;
 
 public class MarkTest {
     private static final Color B = new Color("black");

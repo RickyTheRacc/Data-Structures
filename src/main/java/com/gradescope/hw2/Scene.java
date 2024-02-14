@@ -1,4 +1,4 @@
-package com.gradescope.HW2;
+package com.gradescope.hw2;
 
 import bridges.base.Color;
 import bridges.base.ColorGrid;
@@ -36,7 +36,7 @@ public class Scene {
 	 * Deletes the Mark at the given index
 	 * @param index The index of the Mark to delete
 	 */
-	protected void deleteMark(int index) {
+	public void deleteMark(int index) {
 		if (index < 0 || index >= size) throw new IllegalArgumentException("Index out of bounds");
 
 		for (int i = index; i < size - 1; i++) {
@@ -58,7 +58,7 @@ public class Scene {
 	 * Helper method: returns true if the Scene is full
 	 * @return true if the Scene is full
 	 */
-	private boolean isFull() {
+	public boolean isFull() {
 		return size >= maxMarks;
 	}
 
