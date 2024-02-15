@@ -22,49 +22,39 @@ public class Circle extends Mark {
 
     @Override
     public void draw(ColorGrid cg) {
+        //Let r be radius of the circle
+        //let xc be x coordinate of the circle
+        //let yc be y coordinate of the circle
+        //To draw the circle do:
         int x = radius;
         int y = 0;
+        int error = 0;
 
-        // Initial decision parameter of the circle
-        int p = 1 - radius;
+        while (x >= y) {
 
-        // Print the initial point on the axes after translation
-        cg.set(y + ycenter, x + xcenter, color);
+            //draw  a point with (xc + x, yc + y) coordinates
+            cg.set(xcenter + x, ycenter + y, color);
+            //draw  a point with (xc + y, yc + x) coordinates
+            cg.set(xcenter + y, ycenter + x, color);
+            //draw a point with (xc + x, yc - y) coordinates
+            cg.set(xcenter + x, ycenter - y, color);
+            //draw a point with (xc + y, yc - x) coordinates
+            cg.set(xcenter + y, ycenter - x, color);
+            //draw a point with (xc - x, yc + y) coordinates
+            cg.set(xcenter - x, ycenter + y, color);
+            //draw a point with (xc - y, yc + x) coordinates
+            cg.set(xcenter - y, ycenter + x, color);
+            //draw a point with (xc - x, yc - y) coordinates
+            cg.set(xcenter - x, ycenter - y, color);
+            //draw a point with (xc - y, yc - x) coordinates
+            cg.set(xcenter - y, ycenter - x, color);
 
-        // When radius is zero, only a single point will be printed
-        if (radius > 0) {
-            cg.set(-y + ycenter, x + xcenter, color);
-            cg.set(y + ycenter, -x + xcenter, color);
-            cg.set(-y + ycenter, -x + xcenter, color);
-        }
+            y += 1;
+            error += 1 + 2 * y;
 
-        while (x > y) {
-            y++;
-
-            if (p <= 0) {
-                // Mid-point is inside or on the perimeter
-                p += 2 * y + 1;
-            } else {
-                // Mid-point is outside the perimeter
-                x--;
-                p += 2 * y - 2 * x + 1;
-            }
-
-            // All the perimeter points have already been printed
-            if (x < y) break;
-
-            // Print the generated point and its reflection in the other octants after translation
-            cg.set(y + ycenter, x + xcenter, color);
-            cg.set(-y + ycenter, x + xcenter, color);
-            cg.set(y + ycenter, -x + xcenter, color);
-            cg.set(-y + ycenter, -x + xcenter, color);
-
-            // If the generated point is on the line x = y, then the perimeter points have already been printed
-            if (x != y) {
-                cg.set(x + ycenter, y + xcenter, color);
-                cg.set(-x + ycenter, y + xcenter, color);
-                cg.set(x + ycenter, -y + xcenter, color);
-                cg.set(-x + ycenter, -y + xcenter, color);
+            if (2 * (error - x) + 1 > 0) {
+                x -= 1;
+                error += 1 - (2 * x);
             }
         }
     }
