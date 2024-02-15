@@ -84,20 +84,4 @@ public class DiagonalLine extends Mark {
             cg.set(y, x, color);
         }
     }
-
-//    public void oldDraw(ColorGrid cg) {
-//        // Slope is rise over run, so the change in y over the change in x
-//        double slope = (double) (yEnd - yStart) / (xEnd - xStart);
-//
-//        // The equation of a line is y = mx + b, where m is the slope and b is the y-intercept
-//        // Using this we can reverse the equation to find b, y - mx = b
-//        double yIntercept = yStart - slope * xStart;
-//
-//        // Loop through the x values from xStart to xEnd
-//        for (int x = xStart; x <= xEnd; x++) {
-//            // Calculate the y value using the equation of a line
-//            int y = (int) Math.round(slope * x + yIntercept);
-//            cg.set(y, x, color);
-//        }
-//    }
 }
