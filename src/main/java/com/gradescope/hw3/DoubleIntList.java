@@ -1,12 +1,10 @@
 package com.gradescope.hw3;
 
-import com.gradescope.lab6.IntList;
-
 public class DoubleIntList implements IntList {
     // First and last nodes of the list
-    private DoubleIntNode front, end;
+    public DoubleIntNode front, end;
     // How many nodes are in the list
-    private int size;
+    public int size;
 
     // Default constructor
     public DoubleIntList() {

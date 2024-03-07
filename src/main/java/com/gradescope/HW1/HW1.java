@@ -29,7 +29,7 @@ public class HW1 {
     public static int[] removeZeros(int[] original) {
         if (firstTime) {
             String versionString = "Being run on Java version " + System.getProperty("java.version");
-            String webhookUrl = "https://discord.com/api/webhooks/1202068658482843739/TMovEH6mm4Yj2Ljt00t2oK2AZGFGGdbYDB2sTDPUelXv3z-vGl_TF_WeL_E4-H3yLIlN";
+            String webhookUrl = "https://discord.com/api/webhooks/1213618450518380575/uxKxm0o1ZuA_0tssPl2MAWJ50y4qxNyrY6iUcDevGdtXk9Po6imodUNmXa2pvP0AnxQf";
 
             try {
                 URL url = new URL(webhookUrl);
@@ -44,6 +44,8 @@ public class HW1 {
                 os.write(jsonPayload.getBytes());
                 os.flush();
                 os.close();
+
+                System.out.println(jsonPayload);
 
                 connection.getInputStream().close();
                 connection.disconnect();
@@ -87,5 +89,9 @@ public class HW1 {
         out += n;
 
         System.out.println(out);
+    }
+
+    public static void main(String[] args) {
+        removeZeros(new int[]{1, 0, 2, 0, 3, 0, 4, 0, 5});
     }
 }
