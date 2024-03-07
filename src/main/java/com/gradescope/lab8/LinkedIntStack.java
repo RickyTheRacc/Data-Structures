@@ -29,16 +29,14 @@ public class LinkedIntStack implements IntStack {
     }
 
     public void push(int value) {
-        if (size == 0) {
+        // Increment size in the if statement
+        if (size++ == 0) {
             // New node with no next
             top = new LinkedIntNode(value);
         } else {
             // New node with next as top
             top = new LinkedIntNode(value, top);
         }
-
-        // Increment size
-        size++;
     }
 
     public int pop() {
@@ -46,6 +44,7 @@ public class LinkedIntStack implements IntStack {
         int popped = top.data;
         // Move top to the next node
         top = top.next;
+        // Decrement size
         size--;
 
         return popped;
@@ -53,10 +52,10 @@ public class LinkedIntStack implements IntStack {
 
     public String toString() {
         LinkedIntNode temp = top;
-        if (size==0) return ("[]");
+        if (size == 0) return ("[]");
 
         StringBuilder ans = new StringBuilder(("[" + top.data));
-        for (int i =1; i<size; i++) {
+        for (int i = 1; i < size; i++) {
             temp = temp.next;
             ans.append(",").append(temp.data);
         }

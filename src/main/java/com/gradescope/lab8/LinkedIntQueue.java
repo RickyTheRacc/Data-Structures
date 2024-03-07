@@ -33,7 +33,8 @@ public class LinkedIntQueue implements IntQueue {
     public void enqueue(int value) {
         LinkedIntNode newNode = new LinkedIntNode(value);
 
-        if (size == 0) {
+        // Increment size in the if statement
+        if (size++ == 0) {
             // Set first and last to the new node and make them reference each other
             first = newNode;
             last = newNode;
@@ -43,9 +44,6 @@ public class LinkedIntQueue implements IntQueue {
             last.next = newNode;
             last = last.next;
         }
-
-        // Increment size
-        size++;
     }
 
     public int dequeue() {

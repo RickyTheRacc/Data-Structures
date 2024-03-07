@@ -12,5 +12,4 @@ interface IntQueue {
     boolean isEmpty();
     void enqueue(int value);
     int dequeue();
-
 }
