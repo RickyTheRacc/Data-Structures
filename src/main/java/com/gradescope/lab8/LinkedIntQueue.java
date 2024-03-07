@@ -22,6 +22,7 @@ public class LinkedIntQueue implements IntQueue {
     }
 
     public int first() {
+        // Return the data of the first node
         return first.data;
     }
 
@@ -38,6 +39,7 @@ public class LinkedIntQueue implements IntQueue {
             last = newNode;
             first.next = last;
         } else {
+            // Set the last node's next to the new node and make last reference the new node
             last.next = newNode;
             last = last.next;
         }

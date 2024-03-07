@@ -64,15 +64,17 @@ public class Discussion8 {
         LinkedIntStack s = new LinkedIntStack();
         int size = q.size(); // Store the size of the queue
 
-        // Add all the numbers to the stack
+        // Add all the numbers to the stack, and back to the queue
         for (int i = 0; i < size; i++) {
             int temp = q.dequeue();
             s.push(temp);
             q.enqueue(temp);
         }
 
-        // The stack is now the reverse of the queue
-        // We can compare the queue and the stack to see if they are the same
+        // We now have the queue in the same order that it was
+        // And a stack that is the reverse of the queue
+
+        // Now we can compare the elements of each
         for (int i = 0; i < size; i++) {
             // If any of the elements don't match, return false
             if (q.dequeue() != s.pop()) return false;

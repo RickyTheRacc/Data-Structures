@@ -20,6 +20,7 @@ public class LinkedIntStack implements IntStack {
     }
 
     public int top() {
+        // Return the data of the top node
         return top.data;
     }
 
@@ -29,6 +30,7 @@ public class LinkedIntStack implements IntStack {
 
     public void push(int value) {
         if (size == 0) {
+            // New node with no next
             top = new LinkedIntNode(value);
         } else {
             // New node with next as top
@@ -40,7 +42,9 @@ public class LinkedIntStack implements IntStack {
     }
 
     public int pop() {
+        // Store the data of the top node
         int popped = top.data;
+        // Move top to the next node
         top = top.next;
         size--;
 
