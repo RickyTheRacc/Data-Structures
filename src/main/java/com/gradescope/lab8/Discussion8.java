@@ -5,33 +5,16 @@ package com.gradescope.lab8;
 /Names: Sam Yoder, Nathan Dinh, Johnny Nguyen
 */
 
+@SuppressWarnings("unused")
 public class Discussion8 {
     public static void main(String[] args) {
-        LinkedIntStack s = new LinkedIntStack();
-        LinkedIntQueue q = new LinkedIntQueue();
-        LinkedIntQueue r = new LinkedIntQueue();
-
-        s.push(1);
-        s.push(-2);
-        s.push(-3);
-        s.push(4);
-        s.push(5);
-        splitStack(s);
-        System.out.println(s);
-
-        q.enqueue(1);
-        q.enqueue(2);
-        q.enqueue(3);
-        q.enqueue(2);
-        q.enqueue(1);
-        System.out.println(isPalindrome(q));
-
-        r.enqueue(1);
-        r.enqueue(2);
-        r.enqueue(3);
-        r.enqueue(4);
-        r.enqueue(5);
-        System.out.println(isPalindrome(r));
+        LinkedIntQueue queue = new LinkedIntQueue();
+        queue.enqueue(10);
+        queue.enqueue(62);
+        queue.enqueue(9);
+        queue.enqueue(61);
+        System.out.println(isPalindrom(queue));
+        System.out.println(queue);
     }
 
     public static void splitStack(LinkedIntStack s) {
@@ -60,7 +43,7 @@ public class Discussion8 {
         }
     }
 
-    public static boolean isPalindrome(LinkedIntQueue q) {
+    public static boolean isPalindrom(LinkedIntQueue q) {
         LinkedIntStack s = new LinkedIntStack();
         int size = q.size(); // Store the size of the queue
 
@@ -74,12 +57,15 @@ public class Discussion8 {
         // We now have the queue in the same order that it was
         // And a stack that is the reverse of the queue
 
+        boolean isPalindrome = true;
+
         // Now we can compare the elements of each
         for (int i = 0; i < size; i++) {
-            // If any of the elements don't match, return false
-            if (q.dequeue() != s.pop()) return false;
+            int temp = q.dequeue();
+            if (temp != s.pop()) isPalindrome = false;
+            q.enqueue(temp);
         }
 
-        return true;
+        return isPalindrome;
     }
 }
