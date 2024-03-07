@@ -182,10 +182,15 @@ public class DoubleIntList implements IntList {
     public void remove(int index) {
         checkIndex(index);
 
-        // If the index is 0, remove the front node
+        // If size is one or less, remove the only node
         if (index == 0) {
-            front = front.next;
-            front.prev = null;
+            if (front.next != null) {
+                front = front.next;
+                front.prev = null;
+            } else {
+                front = null;
+                end = null;
+            }
         }
 
         // If the index is the size - 1, remove the end node
