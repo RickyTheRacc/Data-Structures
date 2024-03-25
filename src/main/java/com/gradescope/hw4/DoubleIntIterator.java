@@ -9,13 +9,13 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 public class DoubleIntIterator implements Iterator<Integer> {
-    private final DoubleIntList list;
-    private DoubleIntNode current;
-    private int currentIndex;
+    public DoubleIntList list;
+    public DoubleIntNode current;
+    public int currentIndex;
 
     public DoubleIntIterator(DoubleIntList list) {
         this.list = list;
-        this.current = list.front;
+        this.current = this.list.getFront();
         this.currentIndex = 0;
     }
 

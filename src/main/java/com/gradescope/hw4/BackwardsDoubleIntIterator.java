@@ -9,14 +9,14 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 public class BackwardsDoubleIntIterator implements Iterator<Integer> {
-    private final DoubleIntList list;
-    private DoubleIntNode current;
-    private int currentIndex;
+    public DoubleIntList list;
+    public DoubleIntNode current;
+    public int currentIndex;
 
     public BackwardsDoubleIntIterator(DoubleIntList list) {
         this.list = list;
-        this.current = list.end;
-        this.currentIndex = list.size - 1;
+        this.current = this.list.getEnd();
+        this.currentIndex = list.size() - 1;
     }
 
     @Override
@@ -36,7 +36,7 @@ public class BackwardsDoubleIntIterator implements Iterator<Integer> {
     }
 
     public void remove() {
-        if (currentIndex == list.size - 1) return;
+        if (currentIndex == list.size() - 1) return;
         list.remove(currentIndex + 1);
     }
 }

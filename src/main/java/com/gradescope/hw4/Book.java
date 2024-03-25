@@ -13,7 +13,7 @@ public class Book {
     public static String punctuation(String s) {
         StringBuilder result = new StringBuilder();
 
-        for (char c : s.toLowerCase().toCharArray()) {
+        for (char c: s.toLowerCase().toCharArray()) {
             if (!Character.isLetter(c)) continue;
             result.append(c);
         }
