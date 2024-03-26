@@ -12,9 +12,10 @@ import java.util.*;
 public class Book {
     public static String punctuation(String s) {
         StringBuilder result = new StringBuilder();
+        String punctuation = ".,\"'!?";
 
         for (char c: s.toLowerCase().toCharArray()) {
-            if (!Character.isLetter(c)) continue;
+            if (punctuation.contains(String.valueOf(c))) continue;
             result.append(c);
         }
 
@@ -28,7 +29,7 @@ public class Book {
         try {
             scanner = new Scanner(new File(inputFileName));
         } catch (FileNotFoundException e) {
-            System.out.println("File not found");
+            System.out.println("An error occurred.");
             return words;
         }
 
@@ -42,6 +43,8 @@ public class Book {
     }
 
     public static void statistics(TreeMap<String, Integer> map) {
+        if (map.isEmpty()) return;
+
         System.out.println("Number of different words in book: " + map.size());
 
         // Stream API woohoo!!
