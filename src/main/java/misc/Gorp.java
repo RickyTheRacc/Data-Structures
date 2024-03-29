@@ -1,7 +1,59 @@
 package misc;
 
+import java.util.*;
+
 @SuppressWarnings("unused")
 public class Gorp {
+    public static void main(String[] args) {
+//        EvenIterator iterator = new EvenIterator();
+//        for (int i = 0; i < 10; i++) {
+//            System.out.println(iterator.next());
+//        }
+//
+//        Set<String> set = new HashSet<>();
+//        set.add("bruh");
+//        set.add("three");
+//        set.add("idkmanlol");
+//        set.removeIf(s -> s.toCharArray().length % 2 == 0);
+//        System.out.println(set);
+
+        Map<String, String> test = Map.of(
+            "Guh", "3199361987",
+            "Gorp", "3199361987",
+            "Me", "3195910384"
+        );
+
+        System.out.println(countInAreaCode(test, "319"));
+    }
+
+    public static int countInAreaCode(Map<String, String> map, String code) {
+        Set<String> set = new HashSet<>();
+
+        map.values().forEach(s -> {
+            if (!s.startsWith(code)) return;
+            set.add(s);
+        });
+
+        return set.size();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public static class IntegerStringPair {
         Integer first;
         String second;

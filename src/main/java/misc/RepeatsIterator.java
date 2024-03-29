@@ -1,12 +1,10 @@
 package misc;
 
 import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.NoSuchElementException;
 
 @SuppressWarnings({"unused", "rawtypes"})
-class RepeatsIterator implements Iterator {
+class RepeatsIterator implements Iterator<Integer> {
     private final Iterator fromIter;
     private int count, currentElement;
 
@@ -28,23 +26,11 @@ class RepeatsIterator implements Iterator {
         return count < currentElement;
     }
 
-    public Object next() {
+    public Integer next() {
         if (!hasNext()) throw new NoSuchElementException();
         int result = currentElement;
         count++;
         findNext();
         return result;
-    }
-
-    public static void main(String[] args) {
-        List l = new LinkedList();
-        l.add(3);
-        l.add(1);
-        l.add(2);
-        l.add(0);
-        Iterator i = new RepeatsIterator(l.iterator());
-        while (i.hasNext()) {
-            System.out.println(i.next());
-        }
     }
 }
