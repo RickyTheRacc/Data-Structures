@@ -12,13 +12,12 @@ import java.util.*;
 public class Book {
     public static String punctuation(String s) {
         StringBuilder result = new StringBuilder();
-        String punctuation = ".,\"'!?";
 
         // Lowercase the string and iterate over the characters
         for (char c: s.toLowerCase().toCharArray()) {
-            // Was going to use Character.isLetter() but that oesn't account for numbers
+            // Was going to use Character.isLetter() but that doesn't account for numbers
             // Only add characters that aren't in the list of banned characters
-            if (punctuation.contains(String.valueOf(c))) continue;
+            if (".,\"'!?".contains(String.valueOf(c))) continue;
             result.append(c);
         }
 
