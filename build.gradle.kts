@@ -10,9 +10,8 @@ repositories {
 }
 
 dependencies {
-    testImplementation(platform("org.junit:junit-bom:5.9.2"))
-    testImplementation("org.junit.jupiter:junit-jupiter")
-
+    implementation("junit:junit:4.13.2")
+    implementation("org.apache.commons:commons-csv:1.10.0")
     implementation(files("bridges-java-3.2.1.jar"))
 }
 

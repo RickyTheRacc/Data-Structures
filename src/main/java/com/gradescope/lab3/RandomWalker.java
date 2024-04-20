@@ -40,7 +40,6 @@ public class RandomWalker {
         // Roll number between 0 and 3 inclusive
         int roll = rand.nextInt(4);
 
-
         if (roll == 0) {        // If roll is 0, move up
             y++;
         } else if (roll == 1) { // If roll is 1, move down
